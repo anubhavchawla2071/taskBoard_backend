@@ -2,7 +2,7 @@ import ErrorHandler from "../middlewares/error.js";
 import { Task } from "../models/task.js";
 
 
-export const addNewTask=async (req,res)=>{
+export const addNewTask=async (req,res,next)=>{
   try {
     const {title,description}=req.body;
     await Task.create({
@@ -20,7 +20,7 @@ export const addNewTask=async (req,res)=>{
   }
 };
 
-export const getMyTasks=async (req,res)=>{
+export const getMyTasks=async (req,res,next)=>{
     try {
         const user_id=req.user._id;
 
